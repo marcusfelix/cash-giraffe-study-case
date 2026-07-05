@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# Env / secrets
+.env
+.env*.local
+
+# Editor / local
+*.log
+
+# Note: app/.gitignore covers the Expo app (node_modules, .expo, etc.).
+# Add server (Go) ignores here or in server/.gitignore when it lands.

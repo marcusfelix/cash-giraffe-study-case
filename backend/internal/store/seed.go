@@ -1,0 +1,163 @@
+package store
+
+import "github.com/rewardapp/backend/internal/domain"
+
+// Seed returns the catalog of games and tasks loaded into a fresh database.
+// Images are sourced from the Apple App Store via the iTunes Search API.
+// TODO(dev): replace with the real game catalog and production image assets.
+func Seed() []domain.Game {
+	return []domain.Game{
+		{
+			ID:          "subway-surfers",
+			Title:       "Subway Surfers",
+			Description: "Dash as fast as you can! Dodge the oncoming trains in this endless runner. Collect coins, power-ups, and unlock cool characters.",
+			IconURL:     "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/4e/64/4b/4e644b17-b652-23f4-e1c4-a1292948e57c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+			BannerURL:   "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/4e/64/4b/4e644b17-b652-23f4-e1c4-a1292948e57c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/1024x1024bb.jpg",
+			AppStoreURL: "https://apps.apple.com/us/app/subway-surfers/id512939461",
+			Tasks: []domain.Task{
+				{ID: "ss-1", GameID: "subway-surfers", Title: "Launch", Reward: 100, Order: 1},
+				{ID: "ss-2", GameID: "subway-surfers", Title: "First Run", Reward: 150, Order: 2, Bonus: &domain.Bonus{Reward: 50, ExpiresAt: "2026-07-12T23:59:59Z"}},
+				{ID: "ss-3", GameID: "subway-surfers", Title: "Score 1K", Reward: 200, Order: 3},
+				{ID: "ss-4", GameID: "subway-surfers", Title: "50 Coins", Reward: 180, Order: 4},
+				{ID: "ss-5", GameID: "subway-surfers", Title: "Hoverboard", Reward: 160, Order: 5},
+				{ID: "ss-6", GameID: "subway-surfers", Title: "5 Runs", Reward: 250, Order: 6, Bonus: &domain.Bonus{Reward: 75, ExpiresAt: "2026-07-08T23:59:59Z"}},
+			},
+		},
+		{
+			ID:          "clash-of-clans",
+			Title:       "Clash of Clans",
+			Description: "Build your village, train your troops, and battle with millions of players worldwide in this award-winning strategy game.",
+			IconURL:     "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5d/1c/80/5d1c8003-955b-500e-a2d9-5bc24d12c358/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+			BannerURL:   "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5d/1c/80/5d1c8003-955b-500e-a2d9-5bc24d12c358/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/1024x1024bb.jpg",
+			AppStoreURL: "https://apps.apple.com/us/app/clash-of-clans/id529479190",
+			Tasks: []domain.Task{
+				{ID: "coc-1", GameID: "clash-of-clans", Title: "First Build", Reward: 120, Order: 1},
+				{ID: "coc-2", GameID: "clash-of-clans", Title: "Join Clan", Reward: 200, Order: 2, Bonus: &domain.Bonus{Reward: 100, ExpiresAt: "2026-07-10T23:59:59Z"}},
+				{ID: "coc-3", GameID: "clash-of-clans", Title: "Win Battle", Reward: 250, Order: 3},
+				{ID: "coc-4", GameID: "clash-of-clans", Title: "Town Hall 3", Reward: 300, Order: 4},
+				{ID: "coc-5", GameID: "clash-of-clans", Title: "10 Troops", Reward: 180, Order: 5},
+				{ID: "coc-6", GameID: "clash-of-clans", Title: "Donate", Reward: 220, Order: 6, Bonus: &domain.Bonus{Reward: 80, ExpiresAt: "2026-07-09T23:59:59Z"}},
+			},
+		},
+		{
+			ID:          "candy-crush-saga",
+			Title:       "Candy Crush Saga",
+			Description: "Join Tiffi and Mr. Toffee in their sweet adventure through the Candy Kingdom. Match three or more candies to win.",
+			IconURL:     "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6e/10/a7/6e10a789-ad12-a40c-be55-c0c180989270/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+			BannerURL:   "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6e/10/a7/6e10a789-ad12-a40c-be55-c0c180989270/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/1024x1024bb.jpg",
+			AppStoreURL: "https://apps.apple.com/us/app/candy-crush-saga/id553834731",
+			Tasks: []domain.Task{
+				{ID: "ccs-1", GameID: "candy-crush-saga", Title: "Level 1", Reward: 80, Order: 1},
+				{ID: "ccs-2", GameID: "candy-crush-saga", Title: "Level 10", Reward: 150, Order: 2, Bonus: &domain.Bonus{Reward: 50, ExpiresAt: "2026-07-11T23:59:59Z"}},
+				{ID: "ccs-3", GameID: "candy-crush-saga", Title: "3 Stars", Reward: 120, Order: 3},
+				{ID: "ccs-4", GameID: "candy-crush-saga", Title: "Power-Up", Reward: 100, Order: 4},
+				{ID: "ccs-5", GameID: "candy-crush-saga", Title: "5 Levels", Reward: 200, Order: 5},
+			},
+		},
+		{
+			ID:          "pokemon-go",
+			Title:       "Pokémon GO",
+			Description: "Discover and catch Pokémon in the real world! Explore neighborhoods and nature to find Pokémon, battle at Gyms, and team up with friends.",
+			IconURL:     "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f5/0f/74/f50f74ea-1ee7-5c8e-2647-31ff4a362f1a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+			BannerURL:   "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f5/0f/74/f50f74ea-1ee7-5c8e-2647-31ff4a362f1a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/1024x1024bb.jpg",
+			AppStoreURL: "https://apps.apple.com/us/app/pok%C3%A9mon-go/id1094591345",
+			Tasks: []domain.Task{
+				{ID: "pgo-1", GameID: "pokemon-go", Title: "First Catch", Reward: 150, Order: 1},
+				{ID: "pgo-2", GameID: "pokemon-go", Title: "PokéStop", Reward: 120, Order: 2, Bonus: &domain.Bonus{Reward: 60, ExpiresAt: "2026-07-10T23:59:59Z"}},
+				{ID: "pgo-3", GameID: "pokemon-go", Title: "Evolve", Reward: 200, Order: 3},
+				{ID: "pgo-4", GameID: "pokemon-go", Title: "Gym Battle", Reward: 250, Order: 4},
+				{ID: "pgo-5", GameID: "pokemon-go", Title: "Hatch Egg", Reward: 180, Order: 5},
+			},
+		},
+		{
+			ID:          "clash-royale",
+			Title:       "Clash Royale",
+			Description: "Enter the Arena! From the creators of Clash of Clans comes a real-time multiplayer game starring the Royales.",
+			IconURL:     "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5c/8c/fb/5c8cfb4a-1834-8493-2e22-5e7891949569/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg",
+			BannerURL:   "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5c/8c/fb/5c8cfb4a-1834-8493-2e22-5e7891949569/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/1024x1024bb.jpg",
+			AppStoreURL: "https://apps.apple.com/us/app/clash-royale/id1053012308",
+			Tasks: []domain.Task{
+				{ID: "cr-1", GameID: "clash-royale", Title: "First Win", Reward: 130, Order: 1},
+				{ID: "cr-2", GameID: "clash-royale", Title: "Open Chest", Reward: 100, Order: 2},
+				{ID: "cr-3", GameID: "clash-royale", Title: "400 Trophies", Reward: 200, Order: 3, Bonus: &domain.Bonus{Reward: 80, ExpiresAt: "2026-07-09T23:59:59Z"}},
+				{ID: "cr-4", GameID: "clash-royale", Title: "Upgrade Card", Reward: 180, Order: 4},
+				{ID: "cr-5", GameID: "clash-royale", Title: "Join Clan", Reward: 160, Order: 5},
+			},
+		},
+		{
+			ID:          "roblox",
+			Title:       "Roblox",
+			Description: "Roblox is the ultimate virtual universe that lets you play, create, and be anything you can imagine. Join millions of players in endless adventures.",
+			IconURL:     "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ae/d6/57/aed65717-e85f-212b-21e0-f57112aa8c02/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg",
+			BannerURL:   "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ae/d6/57/aed65717-e85f-212b-21e0-f57112aa8c02/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/1024x1024bb.jpg",
+			AppStoreURL: "https://apps.apple.com/us/app/roblox/id431946152",
+			Tasks: []domain.Task{
+				{ID: "rb-1", GameID: "roblox", Title: "Create Account", Reward: 100, Order: 1},
+				{ID: "rb-2", GameID: "roblox", Title: "First Game", Reward: 150, Order: 2},
+				{ID: "rb-3", GameID: "roblox", Title: "Play Friends", Reward: 180, Order: 3, Bonus: &domain.Bonus{Reward: 70, ExpiresAt: "2026-07-12T23:59:59Z"}},
+				{ID: "rb-4", GameID: "roblox", Title: "Customize", Reward: 130, Order: 4},
+				{ID: "rb-5", GameID: "roblox", Title: "3 Games", Reward: 220, Order: 5},
+			},
+		},
+		{
+			ID:          "among-us",
+			Title:       "Among Us!",
+			Description: "An online and local party game of teamwork and betrayal. Play with 4-15 players as you prepare your spaceship for departure.",
+			IconURL:     "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/57/dc/f8/57dcf861-9c14-e964-6f5b-09f8c4fff8d2/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+			BannerURL:   "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/57/dc/f8/57dcf861-9c14-e964-6f5b-09f8c4fff8d2/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/1024x1024bb.jpg",
+			AppStoreURL: "https://apps.apple.com/us/app/among-us/id1351168404",
+			Tasks: []domain.Task{
+				{ID: "au-1", GameID: "among-us", Title: "Tutorial", Reward: 120, Order: 1},
+				{ID: "au-2", GameID: "among-us", Title: "Win as Crew", Reward: 180, Order: 2, Bonus: &domain.Bonus{Reward: 90, ExpiresAt: "2026-07-08T23:59:59Z"}},
+				{ID: "au-3", GameID: "among-us", Title: "Win as Imp.", Reward: 200, Order: 3},
+				{ID: "au-4", GameID: "among-us", Title: "3 Tasks", Reward: 150, Order: 4},
+				{ID: "au-5", GameID: "among-us", Title: "5 Games", Reward: 250, Order: 5},
+			},
+		},
+		{
+			ID:          "pubg-mobile",
+			Title:       "PUBG MOBILE",
+			Description: "Experience one of the world's most popular battle royale games on mobile. Drop in, gear up, and compete to be the last one standing.",
+			IconURL:     "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/42/a0/f1/42a0f10c-fde1-87ba-a22e-493304fd9c96/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg",
+			BannerURL:   "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/42/a0/f1/42a0f10c-fde1-87ba-a22e-493304fd9c96/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/1024x1024bb.jpg",
+			AppStoreURL: "https://apps.apple.com/us/app/pubg-mobile/id1330123889",
+			Tasks: []domain.Task{
+				{ID: "pm-1", GameID: "pubg-mobile", Title: "Training", Reward: 140, Order: 1},
+				{ID: "pm-2", GameID: "pubg-mobile", Title: "First Kill", Reward: 180, Order: 2},
+				{ID: "pm-3", GameID: "pubg-mobile", Title: "Top 10", Reward: 220, Order: 3, Bonus: &domain.Bonus{Reward: 100, ExpiresAt: "2026-07-10T23:59:59Z"}},
+				{ID: "pm-4", GameID: "pubg-mobile", Title: "Chicken!", Reward: 350, Order: 4},
+				{ID: "pm-5", GameID: "pubg-mobile", Title: "3 Matches", Reward: 200, Order: 5},
+			},
+		},
+		{
+			ID:          "genshin-impact",
+			Title:       "Genshin Impact",
+			Description: "Step into Teyvat, a vast world teeming with life and filled with secrets. An open-world action RPG that brings characters to life.",
+			IconURL:     "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fd/a5/bd/fda5bd6d-4ce5-9bd9-1b06-adc46757af8b/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+			BannerURL:   "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fd/a5/bd/fda5bd6d-4ce5-9bd9-1b06-adc46757af8b/AppIcon-0-0-1x_U007epad-0-1-85-220.png/1024x1024bb.jpg",
+			AppStoreURL: "https://apps.apple.com/us/app/genshin-impact/id1517783697",
+			Tasks: []domain.Task{
+				{ID: "gi-1", GameID: "genshin-impact", Title: "Prologue", Reward: 150, Order: 1},
+				{ID: "gi-2", GameID: "genshin-impact", Title: "Rank 10", Reward: 250, Order: 2, Bonus: &domain.Bonus{Reward: 120, ExpiresAt: "2026-07-12T23:59:59Z"}},
+				{ID: "gi-3", GameID: "genshin-impact", Title: "First Wish", Reward: 200, Order: 3},
+				{ID: "gi-4", GameID: "genshin-impact", Title: "5 Commissions", Reward: 180, Order: 4},
+				{ID: "gi-5", GameID: "genshin-impact", Title: "First Chest", Reward: 120, Order: 5},
+			},
+		},
+		{
+			ID:          "brawl-stars",
+			Title:       "Brawl Stars",
+			Description: "Fast-paced 3v3 multiplayer and battle royale made for mobile! Play with friends or solo across a variety of game modes.",
+			IconURL:     "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a6/dc/a4/a6dca41e-7385-e8fb-cddf-dcb9751c1454/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+			BannerURL:   "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a6/dc/a4/a6dca41e-7385-e8fb-cddf-dcb9751c1454/AppIcon-0-0-1x_U007epad-0-1-85-220.png/1024x1024bb.jpg",
+			AppStoreURL: "https://apps.apple.com/us/app/brawl-stars/id1229016807",
+			Tasks: []domain.Task{
+				{ID: "bs-1", GameID: "brawl-stars", Title: "Tutorial Win", Reward: 110, Order: 1},
+				{ID: "bs-2", GameID: "brawl-stars", Title: "2nd Brawler", Reward: 160, Order: 2},
+				{ID: "bs-3", GameID: "brawl-stars", Title: "Win 3", Reward: 180, Order: 3, Bonus: &domain.Bonus{Reward: 70, ExpiresAt: "2026-07-09T23:59:59Z"}},
+				{ID: "bs-4", GameID: "brawl-stars", Title: "100 Trophies", Reward: 220, Order: 4},
+				{ID: "bs-5", GameID: "brawl-stars", Title: "Star Power", Reward: 200, Order: 5},
+			},
+		},
+	}
+}

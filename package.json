@@ -1,0 +1,14 @@
+{
+  "name": "cash-giraffe",
+  "private": true,
+  "scripts": {
+    "dev": "npm run backend & npm run app:web",
+    "backend": "cd backend && go run ./cmd/server",
+    "app": "cd app && npx expo start",
+    "app:web": "cd app && npx expo start --web",
+    "app:ios": "cd app && npx expo start --ios",
+    "app:android": "cd app && npx expo start --android",
+    "lint": "cd app && npm run lint",
+    "test": "cd backend && go test ./..."
+  }
+}
